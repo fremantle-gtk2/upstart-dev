@@ -1,0 +1,5 @@
+upstart-dev (1.0) unstable; urgency=low
+
+  * Compatibility package.  Import dh_* scripts from upstart-0.3.8-67+0m5
+
+ -- Robert Irvin <android_808@hotmail.com>  Wed, 16 Nov 2016 11:30:50 +0000

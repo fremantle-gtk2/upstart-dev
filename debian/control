@@ -1,0 +1,14 @@
+Source: upstart-dev
+Section: devel
+Priority: extra
+Maintainer: Robert Irvin <android_808@hotmail.com>
+Uploaders: Robert Irvin <android_808@hotmail.com>
+Build-Depends: debhelper
+Standards-Version: 3.7.3
+
+Package: upstart-dev
+Section: devel
+Architecture: all
+Description: dh_installupstart tool
+ This package contains a dh_installupstart a tool to simplify
+ deploying upstart

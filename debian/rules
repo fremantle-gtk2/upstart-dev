@@ -1,0 +1,50 @@
+#!/usr/bin/make -f
+# debian/rules for the upstart package.
+# Author: Scott James Remnant <scott@ubuntu.com>
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Build the package
+build:
+	touch build-stamp
+
+# Install the package underneath debian/tmp
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	cp -a debian/dh/dh_install* debian/upstart-dev/usr/bin
+	cp -a debian/dh/postinst-* debian/upstart-dev/usr/share/debhelper/autoscripts/
+
+binary: binary-indep
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh_testdir
+	dh_testroot
+	#dh_installchangelogs ChangeLog
+	dh_installdocs
+	#dh_install --sourcedir=debian/tmp
+	#dh_link
+	#dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	#dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+
+# Clean up the mess we made
+clean: clean-source
+clean-source:
+	dh_testdir
+	rm -f build-stamp
+	dh_clean 
+
+
+.PHONY: build install binary-indep binary clean clean-source
